@@ -1,0 +1,106 @@
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+
+<body>
+  <div id="me">
+    <select id="teamselect">
+      <option value="0">Red</option>
+      <option value="1">Blue</option>
+      <option value="2">Orange</option>
+      <option value="3">Purple</option>
+    </select>
+
+    <div class="res" id="wood">Wood:</div>
+    <div class="res" id="brick">Brick:</div>
+    <div class="res" id="wheat">Wheat:</div>
+    <div class="res" id="sheep">Sheep:</div>
+    <div class="res" id="ore">Ore:</div>
+  </div>
+  <div id="cards">
+    <div class="addcard" res="wood">Wood+</div>
+    <div class="addcard" res="brick">Brick+</div>
+    <div class="addcard" res="wheat">Wheat+</div>
+    <div class="addcard" res="sheep">Sheep+</div>
+    <div class="addcard" res="ore">Ore+</div>
+
+  </div>
+
+<div class="gameboard" id="gameboard">
+
+    <div class="hex-row even">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row even">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row">
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row even">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+    <div class="hex-row even">
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex port"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+        <div class="hex invis"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>
+    </div>
+</div>
+
+
+
+</body>
+
+<script src="catan.js"></script>
+</html>
