@@ -5,7 +5,7 @@ from dbinfo import IP, USER, PASSWORD, DB
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://%s:%s@%s/%s' % (USER,PASSWORD,IP,DB)
-app.config['SQLALCHEMY_DATABASE_URI'] =
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # print('mysql://%s:%s@%s/%s' % (USER,PASSWORD,IP,DB))
 db = SQLAlchemy(app)
 
