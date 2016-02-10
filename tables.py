@@ -2,13 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from dbinfo import IP, USER, PASSWORD, DB
 
-SETTLEMENT_LIMIT = 5
-CITY_LIMIT = 4 
-ROAD_LIMIT = 20
-RESOURCE_MAX = 19
-KNIGHT_MAX = 14
-VP_CARD_MAX = 5
-PROGRESS_CARD_MAX = 2
+# SETTLEMENT_LIMIT = 5
+# CITY_LIMIT = 4 
+# ROAD_LIMIT = 20
+# RESOURCE_MAX = 19
+# KNIGHT_MAX = 14
+# VP_CARD_MAX = 5
+# PROGRESS_CARD_MAX = 2
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://%s:%s@%s/%s' % (USER,PASSWORD,IP,DB)
