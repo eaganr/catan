@@ -101,7 +101,7 @@ class Limits(db.Model):
 		self.cities = cities
 
 class Resources(db.Model):
-	__tablename__ = 'vertex'
+	__tablename__ = 'resources'
 	resource_id = db.Column('resource_id',db.Integer,primary_key = True)
 	user_id = db.Column('user_id',db.Integer)
 	game_id = db.Column('game_id',db.Integer)
@@ -123,7 +123,7 @@ class Resources(db.Model):
 		self.brick = brick
 
 class Vertex(db.Model):
-	__tablename__ = 'resources'
+	__tablename__ = 'vertex'
 	vertex_id = db.Column('vertex_id',db.Integer,primary_key = True)
 	user_id = db.Column('user_id',db.Integer)
 	game_id = db.Column('game_id',db.Integer)
@@ -143,7 +143,7 @@ class Vertex(db.Model):
 		self.roll3 = roll3
 
 class Edge(db.Model):
-	__tablename__ = 'resources'
+	__tablename__ = 'edge'
 	edge_id = db.Column('edge_id',db.Integer,primary_key = True)
 	user_id = db.Column('user_id',db.Integer)
 	game_id = db.Column('game_id',db.Integer)
@@ -156,10 +156,10 @@ class Edge(db.Model):
 		self.type = type
 
 
-games = Game.query.filter_by(game_id = 1).first()
-games.playerone = 2342342
-db.session.commit()
-print(games.playerone)
+# games = Game.query.filter_by(game_id = 1).first()
+# games.playerone = 2342342
+# db.session.commit()
+# print(games.playerone)
 # user = User('Matt','test')
 # db.session.add(user)
 # db.session.commit()
