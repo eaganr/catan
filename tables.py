@@ -2,13 +2,13 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from dbinfo import IP, USER, PASSWORD, DB
 
-# SETTLEMENT_LIMIT = 5
-# CITY_LIMIT = 4 
-# ROAD_LIMIT = 20
-# RESOURCE_MAX = 19
-# KNIGHT_MAX = 14
-# VP_CARD_MAX = 5
-# PROGRESS_CARD_MAX = 2
+SETTLEMENT_LIMIT = 5
+CITY_LIMIT = 4 
+ROAD_LIMIT = 20
+RESOURCE_MAX = 19
+KNIGHT_MAX = 14
+VP_CARD_MAX = 5
+PROGRESS_CARD_MAX = 2
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://%s:%s@%s/%s' % (USER,PASSWORD,IP,DB)
@@ -29,7 +29,7 @@ class User(db.Model):
 class Game(db.Model):
 	__tablename__ = 'game'
 	game_id = db.Column('game_id',db.Integer,primary_key = True, autoincrement = True)
-	game_user_id = db.Column('game_user_id', db.Integer)
+	# game_user_id = db.Column('game_user_id', db.Integer)
 	playerone = db.Column('playerone', db.Integer)
 	playertwo = db.Column('playertwo', db.Integer)
 	playerthree = db.Column('playerthree', db.Integer)
@@ -42,12 +42,13 @@ class Game(db.Model):
 	longestroad = db.Column('longestroad', db.Integer)
 	currentturn = db.Column('currentturn', db.Integer)
 	winner = db.Column('winner', db.Integer)
+	# starttime = db.Column('starttime',db)
 
-	def __init__(self, game_user_id, playerone = 0, playertwo = 0, playerthree = 0,
+	def __init__(self, playerone = 0, playertwo = 0, playerthree = 0,
 		playerfour = 0, playeronevp = 0, playertwovp = 0, playerthreevp = 0, playerfourvp = 0,
 		largestarmy = 0, longestroad  = 0, currentturn  = 0, winner  = 0):
 		# self.game_id = None 
-		self.game_user_id = game_user_id
+		# self.game_user_id = game_user_id
 		self.playerone = playerone
 		self.playertwo = playertwo
 		self.playerthree = playerthree
@@ -91,8 +92,8 @@ class Limits(db.Model):
 	settlements = db.Column('settlements',db.Integer)
 	cities = db.Column('cities',db.Integer)
 
-	def __init__(self, user_id, game_id, roads = 0, settlements = 0,
-		cities = 0, monopoly = 0, roadbuilder = 0):
+	def __init__(self, user_id, game_id, roads = ROAD_LIMIT, settlements = SETTLEMENT_LIMIT,
+		cities = CITY_LIMIT):
 		
 		self.user_id = user_id
 		self.game_id = game_id
@@ -111,7 +112,7 @@ class Resources(db.Model):
 	sheep = db.Column('sheep',db.Integer)
 	brick = db.Column('brick',db.Integer)
 
-	def __init__(self, game_id, user_id, wood = 0, ore = 0,
+	def __init__(self, user_id,game_id, wood = 0, ore = 0,
 		wheat = 0, sheep = 0, brick = 0):
 		
 		self.user_id = user_id
